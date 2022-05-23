@@ -1,0 +1,9 @@
+.center{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

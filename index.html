@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="temp.css">
+    </head>
+    <body onload="nextInt('numberInt','IntInput')">
+        <div class="center">
+            <h3 class="items">Integers (4 decimalen)</h3>
+            <span class="items" id="numberInt"></span>
+            <script src="randomint.js"></script>
+            <input class="items" id="IntInput">
+            <div class="items">
+                <button onclick="solve('IntInput', 'answer')">Result</button>
+                <button onclick="nextInt('numberInt','IntInput')">Next</button>
+                <button onclick="answer('IntInput')">Answer</button>
+            </div>
+            <span class="items" id="answer">Result</span>
+        </div>
+    </body>
+</html>
