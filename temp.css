@@ -1,4 +1,4 @@
-.center{
+.main{
     position: absolute;
     top: 10%;
     left: 30%;
@@ -6,4 +6,26 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.center{
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.floatItems{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.floatItems>div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#nonIEEfloatInput{
+    width: 200%;
+}
+#DoubleInput{
+    width: 400%;
 }
