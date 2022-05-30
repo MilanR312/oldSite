@@ -15,13 +15,10 @@ function Getbiggest(num){
 function toBin(biggest, num, decimals){
     let out = "";
     for (let i = biggest; i >= -decimals; i--){
-        console.log(num-2**i)
         if (num - 2**i >= 0){
-            console.log("adding 1")
             num = num - 2**i;
             out += "1";
         } else {
-            console.log("adding 0")
             out += "0";
         }
         if(i == 0){
@@ -119,13 +116,12 @@ let questionDouble;
 let answerDouble;
 
 function nextDouble(display, input){
-    let max = 1000;
-    let min = -1000;
+    let max = 500;
+    let min = -500;
     console.clear()
     let decimals = 3;
     let DoubleSign = "";
     let Double = (Math.random() * (max - min) + min).toFixed(decimals);
-    Double = -6.1
     questionDouble = Double;
    
     console.log(Double)
