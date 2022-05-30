@@ -15,10 +15,13 @@ function Getbiggest(num){
 function toBin(biggest, num, decimals){
     let out = "";
     for (let i = biggest; i >= -decimals; i--){
-        if (num - 2**i > 0){
+        console.log(num-2**i)
+        if (num - 2**i >= 0){
+            console.log("adding 1")
             num = num - 2**i;
             out += "1";
         } else {
+            console.log("adding 0")
             out += "0";
         }
         if(i == 0){
@@ -59,12 +62,12 @@ function nextnotIEEEFloat(display, input){
     let decimals = 3;
     let nonIEESign = "";
     let nonIEEFloat = (Math.random() * (max - min) + min).toFixed(decimals);
-    questionApple = nonIEEFloat;
+    questionApple = nonIEEFloat; /*generate random float*/
    
     console.log(nonIEEFloat)
     console.log("float =" + nonIEEFloat)
 
-    if (nonIEEFloat < 0){
+    if (nonIEEFloat < 0){ /*get the sign bit*/
         nonIEESign = "1";
         nonIEEFloat = Math.abs(nonIEEFloat);
     } else {
@@ -122,7 +125,7 @@ function nextDouble(display, input){
     let decimals = 3;
     let DoubleSign = "";
     let Double = (Math.random() * (max - min) + min).toFixed(decimals);
-    Double = -0.035
+    Double = -6.1
     questionDouble = Double;
    
     console.log(Double)
@@ -135,8 +138,8 @@ function nextDouble(display, input){
         DoubleSign = "0";
     }
     console.log("after abs = " + Double)
-
-    let DoubleBin = toBin(Getbiggest(Double)+1,Double,52)
+    let DoubleBin = toBin(Getbiggest(Double),Double,11)
+    console.log(DoubleBin)
     let DoubleMantissa = DoubleBin.replace('.','');
     DoubleBin = parseInt(DoubleBin).toString()
 
@@ -144,29 +147,30 @@ function nextDouble(display, input){
     let DoubleExp = 0;//get the exponent
 
     if (DoubleBin <= 0){
-        while (DoubleBin != ""){
+        while (DoubleBin != "1"){
             DoubleBin = DoubleBin.slice(1,DoubleBin.length)
             DoubleExp += 1;
         }
     } else {
-        while (DoubleBin != ""){
+        while (DoubleBin != "1"){
             DoubleBin = DoubleBin.slice(0,-1)
             DoubleExp += 1;
         }
     }
-
+    console.log("test bin = " + DoubleBin)
 
     console.log("exp = 2**" + DoubleExp)
-    DoubleExp = DoubleExp + 127
+    DoubleExp = DoubleExp + 7
     console.log("test " + DoubleExp)
+    console.log(Getbiggest(DoubleExp))
     DoubleExp = toBin(Getbiggest(DoubleExp), DoubleExp, 0).slice(0,-1)
 
     
 
 
-    DoubleMantissa = DoubleMantissa.slice(0,32);
+    DoubleMantissa = DoubleMantissa.slice(1,11+1);
     
-    DoubleMantissa = DoubleMantissa.padEnd(31,'0')
+    DoubleMantissa = DoubleMantissa.padEnd(11,'0')
 
     console.log("Sign = " + DoubleSign)
     console.log("mantis = " + DoubleMantissa)
