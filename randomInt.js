@@ -116,8 +116,8 @@ let questionDouble;
 let answerDouble;
 
 function nextDouble(display, input){
-    let max = 500;
-    let min = -500;
+    let max = 100;
+    let min = -100;
     console.clear()
     let decimals = 3;
     let DoubleSign = "";
